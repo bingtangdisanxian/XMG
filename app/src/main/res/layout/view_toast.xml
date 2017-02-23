@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:id="@+id/ll_toast_bg"
+              android:gravity="center"
+              android:background="@drawable/call_locate_blue"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_marginRight="5dp"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_info"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_toast_address"
+        android:layout_width="wrap_content"
+        android:text="北京"
+        android:layout_marginLeft="5dp"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:myandroid="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        style="@style/title_TextView"
+        android:text="进程管理"
+        />
+    <com.example.chenqi.mobilphone.view.MyRelativeLayout
+        android:id="@+id/myrl_show_sys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        myandroid:mytext="显示系统进程"
+        myandroid:mybackground="none"
+        />
+    <com.example.chenqi.mobilphone.view.MyRelativeLayout
+        android:id="@+id/myrl_lock_clean"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        myandroid:mytext="开启锁屏清理"
+        myandroid:mybackground="none"
+        />
+
+</LinearLayout>

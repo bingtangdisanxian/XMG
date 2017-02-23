@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_process_logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/d"
+        android:layout_margin="5dp"
+        />
+    <TextView
+        android:id="@+id/tv_process_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="手机卫士"
+        android:textSize="18sp"
+        android:layout_toRightOf="@id/iv_process_logo"
+
+        />
+    <TextView
+        android:id="@+id/tv_process_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="占用内存:"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/iv_process_logo"
+        android:layout_alignBottom="@id/iv_process_logo"
+        />
+    <CheckBox
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:id="@+id/tv_isChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        />
+    <!--android:button="@drawable/xxx":可以自定义checkBox的选则框的图片-->
+    <!--android:button="@drawable/set_item_ischecked"-->
+
+</RelativeLayout>

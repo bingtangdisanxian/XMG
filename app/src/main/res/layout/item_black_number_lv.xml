@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_blackNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="110"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        />
+    <ImageView
+        android:id="@+id/iv_delete_blackNumber"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_delete_normal"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/blacknumber_lv_select"
+        />
+    <TextView
+        android:id="@+id/tv_delete_blackNumber"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/tv_blackNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="电话拦截"
+        />
+
+</RelativeLayout>

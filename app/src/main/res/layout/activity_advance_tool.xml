@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        style="@style/title_TextView"
+        android:text="高级工具"
+        />
+
+    <Button
+        android:id="@+id/btn_advance_tool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/home_gv_select"
+        android:text="程序锁"
+        />
+
+    <Button
+        android:id="@+id/btn_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/home_gv_select"
+        android:text="归属地查询"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_enter_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_enter_query_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入需要查询的号码"
+            android:inputType="number"
+            android:paddingLeft="3dp"
+            />
+
+        <Button
+            android:id="@+id/btn_query_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_gv_select"
+            android:text="查询"
+            />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/BlackText"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_common_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/home_gv_select"
+        android:text="@string/common_number_query"
+        />
+
+    <Button
+        android:id="@+id/btn_sms_backup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/home_gv_select"
+        android:text="@string/sms_backup"
+        />
+
+    <Button
+        android:id="@+id/btn_app_lock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/home_gv_select"
+        android:text="@string/app_lock"
+        />
+
+</LinearLayout>

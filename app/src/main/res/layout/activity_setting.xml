@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:gaga="http://schemas.android.com/apk/res-auto"
+              xmlns:myandroid="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/blue_bkg"
+        android:gravity="center"
+        android:text="设置"
+        android:textColor="#fff"
+        android:textSize="18sp"/>
+
+
+    <com.example.chenqi.mobilphone.view.MyRelativeLayout
+        android:id="@+id/myrl_update"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        myandroid:mybackground="first"
+        myandroid:mytext="自动更新"
+        />
+
+    <com.example.chenqi.mobilphone.view.MyRelativeLayout
+        android:id="@+id/myrl_black"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        myandroid:mybackground="middle"
+        myandroid:mytext="黑名单拦截"
+        />
+
+    <com.example.chenqi.mobilphone.view.MyRelativeLayout
+        android:id="@+id/myrl_address"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        myandroid:mybackground="middle"
+        myandroid:mytext="号码归属地显示"
+        />
+
+    <com.example.chenqi.mobilphone.view.MyRelativeLayout
+        android:id="@+id/myrl_lock"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        myandroid:mybackground="last"
+        myandroid:mytext="程序锁"
+        />
+
+    <com.example.chenqi.mobilphone.view.SetRelativeBg
+        android:id="@+id/srb_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#a4abab"
+        gaga:mybig_title="显示归属地提示框风格"
+        gaga:mysmall_title="苹果绿"/>
+
+</LinearLayout>

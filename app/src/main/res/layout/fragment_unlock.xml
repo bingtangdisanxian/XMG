@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_unLock_app"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#0c5eed"
+                android:text="未加锁软件:20个"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="20dp"
+                android:id="@+id/rv_app_unLock"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_user_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="用户软件:10个"
+            android:background="#888888"
+            android:textColor="#fff"
+            android:textSize="14sp"/>
+
+    </FrameLayout>
+
+
+</LinearLayout>

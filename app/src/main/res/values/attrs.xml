@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyRelativeLayout">
+        <attr name="mytext" format="string"/>
+        <attr name="mybackground">
+            <enum name="first" value="0"/>
+            <enum name="middle" value="1"/>
+            <enum name="last" value="2"/>
+            <enum name="none" value="3"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SetRelativeBg">
+        <attr name="mybig_title" format="string"/>
+        <attr name="mysmall_title" format="string"/>
+    </declare-styleable>
+</resources>

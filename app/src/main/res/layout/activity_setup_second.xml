@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        style="@style/title_TextView"
+        android:background="@drawable/blue_bkg"
+        android:text="2.手机卡的绑定"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通过绑定SIM卡:\n下次重启手机,如果发现SIM卡不一致,就会给安全号码发送报警短信"
+        />
+    <RelativeLayout
+        android:id="@+id/rl_bindSim"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/home_gv_select"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        >
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击绑定/解绑SIM卡"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            />
+        <ImageView
+            android:id="@+id/iv_lock_unlock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/unlock"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        >
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_offline"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_online"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_offline"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_offline"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/step_2"
+            android:layout_centerInParent="true"
+            />
+        <ImageView
+            android:onClick="next"
+            style="@style/setup_toNext"/>
+        <ImageView
+            android:onClick="pre"
+            style="@style/setup_toPre"/>
+    </RelativeLayout>
+
+</LinearLayout>

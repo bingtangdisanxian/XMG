@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">手机卫士</string>
+    <string name="sample_device_admin_description">手机卫士</string>
+    <string name="common_number_query">常用号码查询</string>
+    <string name="sms_backup">短信备份</string>
+    <string name="app_lock">程序锁</string>
+</resources>
