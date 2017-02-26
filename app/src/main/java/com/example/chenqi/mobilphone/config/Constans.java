@@ -1,5 +1,7 @@
 package com.example.chenqi.mobilphone.config;
 
+import static com.example.chenqi.mobilphone.config.Constans.URL.BASEURL;
+
 /**
  * 常量类:用来存储一些项目中需要用到的常量
  */
@@ -16,9 +18,10 @@ public class Constans {
     public static final String Y = "y";
     public static final String SWICH = "swich";
     public static String safeNumber ="safenumber";
+    public static final String URL_UPDATE_DB =BASEURL+"update.txt";
 
     public class URL{
-        public static final String BASEURL ="http://192.168.33.232:8080/";
+        public static final String BASEURL ="http://192.168.53.1:8080/";
         public static final String UPDATEURL =BASEURL+"info.json";
     }
 }

@@ -44,8 +44,6 @@ public class SettingActivity extends BaseActivity {
     protected void initData() {
         boolean update = SpUtils.getBoolean(SettingActivity.this, Constans.AUTOUPDATE);
         myrl_update.setImage(update);
-        boolean watchDog = ServiceUtils.isServiceRunning(SettingActivity.this, "com.example.chenqi.mobilphone.service.WatchDogService");
-        myrl_lock.setImage(watchDog);
     }
 
     @Override
@@ -144,10 +142,14 @@ public class SettingActivity extends BaseActivity {
         boolean serviceLocation = ServiceUtils.isServiceRunning(getApplicationContext(), "com.example.chenqi.mobilphone.service.ShowLocationService");
         //2根据状态值显示不同的图片
         myrl_address.setImage(serviceLocation);
+
         //弹出显示风格的背景回显
         int position = SpUtils.getInt(getApplicationContext(), Constans.SWICH);
         String name = names[position];
         srb_color.setBgColor(name);
+
+        boolean watchDog = ServiceUtils.isServiceRunning(SettingActivity.this, "com.example.chenqi.mobilphone.service.WatchDogService");
+        myrl_lock.setImage(watchDog);
         super.onResume();
     }
 }

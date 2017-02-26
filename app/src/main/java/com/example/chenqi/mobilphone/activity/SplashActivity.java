@@ -24,14 +24,20 @@ import android.widget.Toast;
 
 import com.example.chenqi.mobilphone.R;
 import com.example.chenqi.mobilphone.bean.JsonBean;
+import com.example.chenqi.mobilphone.bean.UpdateInfoBean;
 import com.example.chenqi.mobilphone.config.Constans;
+import com.example.chenqi.mobilphone.database.dao.Md5Dao;
 import com.example.chenqi.mobilphone.utils.SpUtils;
 import com.example.chenqi.mobilphone.utils.StreamUtils;
+import com.example.chenqi.mobilphone.utils.ToastUtils;
 import com.google.gson.Gson;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -42,7 +48,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class AnimationActivity extends Activity {
+public class SplashActivity extends Activity {
     private static final int STARTHOME = 0;//不需升级,进入主界面
     private static final int NEEDUPDATE = 1;//需要升级
     private TextView mTv_VersionCode, mTv_VersionName;
@@ -63,10 +69,10 @@ public class AnimationActivity extends Activity {
                     showDownLoadDialog((JsonBean) msg.obj);
                     break;
                 case 1000: //需要提醒用户升级
-                    Toast.makeText(AnimationActivity.this, "网络异常", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SplashActivity.this, "网络异常", Toast.LENGTH_SHORT).show();
                     break;
                 case 1001: //需要提醒用户升级
-                    Toast.makeText(AnimationActivity.this, "io异常", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SplashActivity.this, "io异常", Toast.LENGTH_SHORT).show();
                     break;
             }
             startHome();
@@ -82,8 +88,9 @@ public class AnimationActivity extends Activity {
         initData();
         initAnimation();
         initListener();
-        copyAddressDatabase("address.db");
-        copyAddressDatabase("commonnum.db");
+        copyLocalDb("address.db");
+        copyLocalDb("commonnum.db");
+        copyLocalDb("antivirus.db");
     }
 
     private void initView() {
@@ -94,6 +101,54 @@ public class AnimationActivity extends Activity {
 
     private void initData() {
         getAppVersion();
+        updateDB();
+    }
+
+    private void updateDB() {
+        // 1在子线程中操作
+        new Thread() {
+            public void run() {
+                // 链接服务器
+                try {
+                    URL url = new URL(Constans.URL_UPDATE_DB);
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setConnectTimeout(5000);
+                    int code = conn.getResponseCode();
+                    if (code == 200) {
+                        InputStream in = conn.getInputStream();
+                        //将这个字节流转换为字符流
+                        String JsonStr = StreamUtils.InputSteam2String(in);
+                        UpdateInfoBean updateInfoBean = Json2Obj(JsonStr);
+                        //判断是否需要更新就是比对版本号
+                        int versionCode = Md5Dao.getVersionCode();
+                        if (Integer.valueOf(updateInfoBean.version) > versionCode) {
+                            //说明需要更新
+                            //插入病毒信息
+                            Md5Dao.insertMd5(updateInfoBean);
+                            //插入版本
+                            Md5Dao.updateVersionCode(updateInfoBean.version);
+                        }
+                    }
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    ToastUtils.showToastSafe("链接不到网络...");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    private UpdateInfoBean Json2Obj(String jsonStr) throws JSONException {
+        JSONObject jsonObject=new JSONObject(jsonStr);
+        UpdateInfoBean updateInfoBean=new UpdateInfoBean();
+        updateInfoBean.version = jsonObject.getString("version");
+        updateInfoBean.md5 = jsonObject.getString("md5");
+        updateInfoBean.type = jsonObject.getString("type");
+        updateInfoBean.name = jsonObject.getString("name");
+        updateInfoBean.desc = jsonObject.getString("desc");
+        return updateInfoBean;
     }
 
     private void getAppVersion() {
@@ -144,7 +199,7 @@ public class AnimationActivity extends Activity {
             @Override
             public void onSuccess(ResponseInfo<File> responseInfo) {
                 //需要按照最新的apk
-                Toast.makeText(AnimationActivity.this, "下载成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SplashActivity.this, "下载成功", Toast.LENGTH_SHORT).show();
                /* <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="content" />
@@ -160,7 +215,7 @@ public class AnimationActivity extends Activity {
             //下载失败回调
             @Override
             public void onFailure(HttpException e, String s) {
-                Toast.makeText(AnimationActivity.this, "下载失败", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SplashActivity.this, "下载失败", Toast.LENGTH_SHORT).show();
                 startHome();
             }
         });
@@ -250,7 +305,7 @@ public class AnimationActivity extends Activity {
 
     private void startHome() {
         //切记:创建新的activity需要在清单文件中配置
-        Intent intent = new Intent(AnimationActivity.this, HomeActivity.class);
+        Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
         startActivity(intent);
         finish();
     }
@@ -291,9 +346,7 @@ public class AnimationActivity extends Activity {
         mRl_root.startAnimation(mAS);
     }
 
-
-
-    private void copyAddressDatabase(final String name) {
+    private void copyLocalDb(final String name) {
         new Thread() {
             public void run() {
                 try {
@@ -305,7 +358,7 @@ public class AnimationActivity extends Activity {
                         // 将一个流转换为一个文件中的数据
                         // 1 先有文件
                         FileOutputStream fos = new FileOutputStream(file);
-                        int len = -1;
+                        int len;
                         byte[] buffer = new byte[1024];
                         while ((len = is.read(buffer)) != -1) {
                             fos.write(buffer, 0, len);

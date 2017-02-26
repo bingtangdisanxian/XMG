@@ -84,6 +84,18 @@ public class HomeActivity extends Activity {
                         IntentUtils.startActivity(HomeActivity.this,ProcessActivity.class);
                         overridePendingTransition(R.anim.next_in,R.anim.next_out);
                         break;
+                    case 4://流量统计
+                        IntentUtils.startActivity(HomeActivity.this,TrafficActivity.class);
+                        overridePendingTransition(R.anim.next_in,R.anim.next_out);
+                        break;
+                    case 5://病毒查杀
+                        IntentUtils.startActivity(HomeActivity.this,VirusActivity.class);
+                        overridePendingTransition(R.anim.next_in,R.anim.next_out);
+                        break;
+                    case 6://缓存清理
+                        IntentUtils.startActivity(HomeActivity.this,CacheCleanActivity.class);
+                        overridePendingTransition(R.anim.next_in,R.anim.next_out);
+                        break;
                     case 7://高级工具
                         IntentUtils.startActivity(HomeActivity.this,AdvanceToolActivity.class);
                         overridePendingTransition(R.anim.next_in,R.anim.next_out);

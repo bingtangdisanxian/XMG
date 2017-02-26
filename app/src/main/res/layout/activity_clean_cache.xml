@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="缓存清理"
+            android:layout_height="50dp"
+            style="@style/title_TextView"/>
+
+        <Button
+            android:id="@+id/btn_clear_all"
+            android:layout_width="wrap_content"
+            android:text="清理所有"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/fl_clear_cacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ProgressBar
+            android:id="@+id/pb_clear_cacher"
+            android:layout_width="match_parent"
+            android:progressDrawable="@drawable/progress_horizontal"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_clear_cacher"
+            android:layout_width="wrap_content"
+            android:textColor="#f1b606"
+            android:layout_marginBottom="3dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+    <ListView
+        android:id="@+id/lv_clear_cacher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
